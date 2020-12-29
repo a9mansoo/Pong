@@ -104,10 +104,10 @@ def paddle_right_down():
 # Keyboard binding
 # listen to keyboard input
 window.listen()
-window.onkeypress(paddle_left.paddle_up(), "w")
-window.onkeypress(paddle_left.paddle_down(), "s")
-window.onkeypress(paddle_right.paddle_up(), "Up")
-window.onkeypress(paddle_right.paddle_down(), "Down")
+window.onkeypress(paddle_left.paddle_up, "w")
+window.onkeypress(paddle_left.paddle_down, "s")
+window.onkeypress(paddle_right.paddle_up, "Up")
+window.onkeypress(paddle_right.paddle_down, "Down")
 
 # Main game loop, actual start of game
 while True:
