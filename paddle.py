@@ -5,12 +5,8 @@ Paddle class
 '''
 
 class Paddle:
-    #x_position = 0
-    #y_position = 0
-    player_num = 0
-    paddle = None
-
     def __init__(self, player_num):
+        # object specific variables
         self.paddle = turtle.Turtle()
         self.paddle.speed(0)
         self.paddle.shape("square")
@@ -26,13 +22,17 @@ class Paddle:
 
     def paddle_up(self):
         y_position = self.paddle.ycor()
-        y_position += 20
-        self.paddle.sety(y_position)
+        # check if still on screen then move
+        if y_position < 300:
+            y_position += 20
+            self.paddle.sety(y_position)
 
     def paddle_down(self):
         y_position = self.paddle.ycor()
-        y_position -= 20
-        self.paddle.sety(y_position)
+        # check if still on screen then move
+        if y_position > - 300:
+            y_position -= 20
+            self.paddle.sety(y_position)
 
     def get_ycor(self):
         return self.paddle.ycor()

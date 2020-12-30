@@ -1,5 +1,6 @@
 import turtle
 from paddle import Paddle
+from ball import Ball
 
 player_1 = 1
 player_2 = 2
@@ -37,6 +38,7 @@ paddle_left = Paddle(player_1)
 
 # Paddle b, right paddle
 paddle_right = Paddle(player_2)
+ball = Ball()
 '''
 paddle_right = turtle.Turtle()
 paddle_right.speed(0)
@@ -45,8 +47,9 @@ paddle_right.color("purple")
 paddle_right.shapesize(stretch_wid=5, stretch_len=1)
 paddle_right.penup()
 paddle_right.goto(350,0)
-'''
+
 # Ball
+
 ball = turtle.Turtle()
 ball.speed(0)
 ball.shape("circle")
@@ -67,7 +70,7 @@ pen.write("Player A: 0 Player B: 0", align="center", font=("Courier", 24, "norma
 
 
 # Function
-'''
+
 def paddle_left_up():
     # know the current y coordinate
     y = paddle_left.ycor()
@@ -113,7 +116,11 @@ window.onkeypress(paddle_right.paddle_down, "Down")
 while True:
     # update the screen
     window.update()
-    
+    ball.go_ball()
+    ball.check_ball()
+    ball.check_paddle(paddle_right, paddle_left)
+
+    '''
     # Move the ball
     ball.setx(ball.xcor() + ball.dx)
     ball.sety(ball.ycor() + ball.dy)
@@ -151,3 +158,4 @@ while True:
     if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_left.get_ycor() + 40) and (ball.ycor() > paddle_left.get_ycor() - 40):
         ball.setx(-340)
         ball.dx *=-1    
+    '''
